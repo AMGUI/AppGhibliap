@@ -1,21 +1,23 @@
 package com.example.etudiodibri.presenter
 
 import android.util.Log
-import com.example.etudiodibri.MainActivity
-import com.example.etudiodibri.contratos.ContratoDibri
-import com.example.etudiodibri.model.DibreResponse
-import com.example.etudiodibri.repositorio.DibreRepositorio
+import com.example.etudiodibri.Activity.MainActivity
+
+import com.example.etudiodibri.contratos.ContratoGibli
+
+import com.example.etudiodibri.model.GhibliResponse
+import com.example.etudiodibri.repositorio.GhibliRepositorio
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PresenterDIbre(private val view: MainActivity, private val repositorio: DibreRepositorio):ContratoDibri.Presenter {
+class PresenterGhibli(private val view: MainActivity, private val repositorio: GhibliRepositorio):ContratoGibli.Presenter {
     override fun requistadados() {
         val requisitado = repositorio.request()
-        requisitado.enqueue(object: Callback<List<DibreResponse>>{
+        requisitado.enqueue(object: Callback<List<GhibliResponse>>{
             override fun onResponse(
-                call: Call<List<DibreResponse>>,
-                response: Response<List<DibreResponse>>
+                call: Call<List<GhibliResponse>>,
+                response: Response<List<GhibliResponse>>
             ) {
 
                 if (response.isSuccessful && response.body() != null) {
@@ -26,7 +28,7 @@ class PresenterDIbre(private val view: MainActivity, private val repositorio: Di
 
             }
 
-            override fun onFailure(call: Call<List<DibreResponse>>, t: Throwable) {
+            override fun onFailure(call: Call<List<GhibliResponse>>, t: Throwable) {
                 Log.e("ERRO ERMEK", t.message, t)
             }
 

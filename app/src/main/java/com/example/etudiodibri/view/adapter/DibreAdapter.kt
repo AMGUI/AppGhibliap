@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.etudiodibri.R
-import com.example.etudiodibri.model.DibreResponse
+import com.example.etudiodibri.model.GhibliResponse
 
-class DibreAdapter(private val dibre :List<DibreResponse>):RecyclerView.Adapter<DibreAdapter.DibreViewHolder>() {
+class DibreAdapter(private val dibre :List<GhibliResponse>):RecyclerView.Adapter<DibreAdapter.DibreViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DibreViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.lista_dibre,parent,false)
@@ -26,7 +26,7 @@ class DibreAdapter(private val dibre :List<DibreResponse>):RecyclerView.Adapter<
 
     inner class DibreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val name : TextView = itemView.findViewById(R.id.dibreFilmeName)
-        fun bind(filme : DibreResponse){
+        fun bind(filme : GhibliResponse){
             name.text = filme.title
         }
 

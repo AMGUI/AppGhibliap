@@ -3,7 +3,7 @@ package com.example.etudiodibri.model
 import com.google.gson.annotations.SerializedName
 import java.time.Year
 
-data class DibreResponse(
+data class GhibliResponse(
 
     @SerializedName("id")
     val id           : String,
