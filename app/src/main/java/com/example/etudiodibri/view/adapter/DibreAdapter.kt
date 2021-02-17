@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.etudiodibri.R
@@ -26,9 +27,18 @@ class DibreAdapter(private val dibre :List<GhibliResponse>):RecyclerView.Adapter
 
     inner class DibreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val name : TextView = itemView.findViewById(R.id.dibreFilmeName)
+      //  private  val imagemLayout : ImageView = itemView.findViewById(R.id.totoroImg)
+
         fun bind(filme : GhibliResponse){
             name.text = filme.title
+
+
+
         }
 
+
+
     }
+
+
 }
