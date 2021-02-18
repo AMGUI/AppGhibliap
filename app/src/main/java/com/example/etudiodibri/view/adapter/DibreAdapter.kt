@@ -27,10 +27,12 @@ class DibreAdapter(private val dibre :List<GhibliResponse>):RecyclerView.Adapter
 
     inner class DibreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val name : TextView = itemView.findViewById(R.id.dibreFilmeName)
-      //  private  val imagemLayout : ImageView = itemView.findViewById(R.id.totoroImg)
+        private  val imagemLayout : ImageView = itemView.findViewById(R.id.totoroImg)
 
         fun bind(filme : GhibliResponse){
             name.text = filme.title
+            val imageRes = filme.getThumbnail(itemView.context)
+            imagemLayout.setImageResource(imageRes)
 
 
 
