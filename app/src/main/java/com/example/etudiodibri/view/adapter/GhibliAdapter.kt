@@ -1,7 +1,6 @@
 package com.example.etudiodibri.view.adapter
 
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -10,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.etudiodibri.R
 import com.example.etudiodibri.model.GhibliResponse
 
-class DibreAdapter(private val dibre :List<GhibliResponse>):RecyclerView.Adapter<DibreAdapter.DibreViewHolder>() {
+class GhibliAdapter(private val dibre :List<GhibliResponse>):RecyclerView.Adapter<GhibliAdapter.DibreViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DibreViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.lista_dibre,parent,false)

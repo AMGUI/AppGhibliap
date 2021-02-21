@@ -33,7 +33,7 @@ data class GhibliResponse(
 private fun getThumbnailName(): String {
     //example: My Neighbor Totoro = my_neighbor_totoro
     return title
-        .toLowerCase(Locale.getDefault())
+        .toLowerCase()
         .replace(" ", "_")
         .replace("'", "")
 }
