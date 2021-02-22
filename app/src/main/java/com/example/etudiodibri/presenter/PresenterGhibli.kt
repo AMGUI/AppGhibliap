@@ -1,7 +1,10 @@
 package com.example.etudiodibri.presenter
 
 import android.util.Log
+import android.view.View
+import android.widget.FrameLayout
 import com.example.etudiodibri.Activity.MainActivity
+import com.example.etudiodibri.R
 
 import com.example.etudiodibri.contratos.ContratoGibli
 
@@ -14,6 +17,7 @@ import retrofit2.Response
 class PresenterGhibli(private val view: MainActivity, private val repositorio: GhibliRepositorio):ContratoGibli.Presenter {
     override fun requistadados() {
         val requisitado = repositorio.request()
+
         requisitado.enqueue(object: Callback<List<GhibliResponse>>{
             override fun onResponse(
                 call: Call<List<GhibliResponse>>,
@@ -21,6 +25,8 @@ class PresenterGhibli(private val view: MainActivity, private val repositorio: G
             ) {
 
                 if (response.isSuccessful && response.body() != null) {
+
+                    view.pararLoanding()
                     Log.d("OKAY", response.body().toString())
                     view.showdados(response.body()!!)
                     return
