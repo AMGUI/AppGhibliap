@@ -9,7 +9,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:background="@drawable/home_img">
 
         <ImageView
@@ -25,7 +25,6 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/frame_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

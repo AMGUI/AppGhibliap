@@ -79,7 +79,6 @@ class MainActivity : AppCompatActivity(), ContratoGibli.View {
         val erroLoadingFragment = ErroLoadingFragment()
         val transacao2 = supportFragmentManager.beginTransaction()
         this.loandingFragento.onDetach()
-        //transacao2.add(R.id.frame_loading,erroLoadingFragment)
         transacao2.replace(R.id.frame_loading,erroLoadingFragment)
         transacao2.commit()
 
