@@ -6,16 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import com.bumptech.glide.Glide
 import com.example.etudiodibri.R
-import com.example.etudiodibri.contratos.ContratoGibli
 
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 
-class LoandingFragment : Fragment() {
+class ErroLoadingFragment : Fragment() {
+
     private var param1: String? = null
     private var param2: String? = null
 
@@ -27,16 +26,16 @@ class LoandingFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val view: View = inflater.inflate(R.layout.fragment_loanding, container, false)
-        val imageView : ImageView = view.findViewById(R.id.totoro_andandoImgview)
-        Glide.with(this).load(R.drawable.totorowalking).into(imageView)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view: View = inflater.inflate(R.layout.fragment_erro_loading, container, false)
+        val imagemView : ImageView = view.findViewById(R.id.totoro_dormindoImgview)
+        imagemView.setImageResource(R.drawable.erro_conex)
 
         return view
     }
-
-
 
 
 }

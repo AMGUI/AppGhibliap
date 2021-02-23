@@ -35,6 +35,7 @@ class PresenterGhibli(private val view: MainActivity, private val repositorio: G
             }
 
             override fun onFailure(call: Call<List<GhibliResponse>>, t: Throwable) {
+                view.erroConex()
                 Log.e("ERRO ERMEK", t.message, t)
             }
 

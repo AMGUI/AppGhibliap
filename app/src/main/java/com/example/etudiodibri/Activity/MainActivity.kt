@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.etudiodibri.R
 import com.example.etudiodibri.contratos.ContratoGibli
+import com.example.etudiodibri.fragment.ErroLoadingFragment
 import com.example.etudiodibri.fragment.LoandingFragment
 import com.example.etudiodibri.model.GhibliResponse
 import com.example.etudiodibri.presenter.PresenterGhibli
@@ -29,10 +31,10 @@ class MainActivity : AppCompatActivity(), ContratoGibli.View {
 
         //fraguimento do Totoro andando (Loand)
 
-        val trasacao = supportFragmentManager.beginTransaction()
+        val transacao1 = supportFragmentManager.beginTransaction()
         loandingFragento = LoandingFragment()
-        trasacao.add(R.id.frame_loading,loandingFragento)
-        trasacao.commit()
+        transacao1.add(R.id.frame_loading,loandingFragento)
+        transacao1.commit()
 
         //=====================================
 
@@ -65,10 +67,21 @@ class MainActivity : AppCompatActivity(), ContratoGibli.View {
         updatafilmes(Dibrelista)
     }
 
-    fun pararLoanding(){
+    override fun pararLoanding(){
         this.frame_loading = findViewById(R.id.frame_loading)
         this.loandingFragento.onStop()
         this.frame_loading.setVisibility(View.GONE)
+
+
+    }
+
+    override fun erroConex(){
+        val erroLoadingFragment = ErroLoadingFragment()
+        val transacao2 = supportFragmentManager.beginTransaction()
+        this.loandingFragento.onDetach()
+        //transacao2.add(R.id.frame_loading,erroLoadingFragment)
+        transacao2.replace(R.id.frame_loading,erroLoadingFragment)
+        transacao2.commit()
 
 
     }
