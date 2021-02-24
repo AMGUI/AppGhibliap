@@ -1,10 +1,13 @@
 package com.example.etudiodibri.model
 
 import android.content.Context
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import java.time.Year
 import java.util.*
 
+@Parcelize
 data class GhibliResponse(
 
     @SerializedName("id")
@@ -28,7 +31,8 @@ data class GhibliResponse(
     @SerializedName("rt_score")
     val rt_score     : Double
 
-){
+) : Parcelable
+{
 
 private fun getThumbnailName(): String {
     //example: My Neighbor Totoro = my_neighbor_totoro

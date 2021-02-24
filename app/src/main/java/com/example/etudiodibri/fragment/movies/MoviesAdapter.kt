@@ -1,4 +1,4 @@
-package com.example.etudiodibri.view.adapter
+package com.example.etudiodibri.fragment.movies
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.etudiodibri.R
 import com.example.etudiodibri.model.GhibliResponse
+import retrofit2.Response
 
-class GhibliAdapter(private val dibre :List<GhibliResponse>):RecyclerView.Adapter<GhibliAdapter.DibreViewHolder>() {
+class MoviesAdapter(private val dibre :List<GhibliResponse>, private val onMovieSelect: (filme: GhibliResponse) -> Unit):RecyclerView.Adapter<MoviesAdapter.DibreViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DibreViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.lista_dibre,parent,false)
@@ -19,7 +20,6 @@ class GhibliAdapter(private val dibre :List<GhibliResponse>):RecyclerView.Adapte
     override fun onBindViewHolder(holder: DibreViewHolder, position: Int) {
         val filme = dibre[position]
         holder.bind(filme)
-
     }
 
     override fun getItemCount() = dibre.size
@@ -32,14 +32,7 @@ class GhibliAdapter(private val dibre :List<GhibliResponse>):RecyclerView.Adapte
             name.text = filme.title
             val imageRes = filme.getThumbnail(itemView.context)
             imagemLayout.setImageResource(imageRes)
-
-
-
+            itemView.setOnClickListener { onMovieSelect(filme) }
         }
-
-
-
     }
-
-
 }

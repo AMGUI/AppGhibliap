@@ -1,6 +1,6 @@
 package com.example.etudiodibri.network
 
-import com.example.etudiodibri.aplication.Constants
+import com.example.etudiodibri.application.Constants
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
