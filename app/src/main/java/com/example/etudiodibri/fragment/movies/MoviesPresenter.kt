@@ -13,6 +13,8 @@ class MoviesPresenter(private val view: MoviesContract.View, private val reposit
         val request = repository.requistarFilmes()
         request.enqueue(object : Callback<List<GhibliResponse>> {
             override fun onResponse(call: Call<List<GhibliResponse>>, response: Response<List<GhibliResponse>>) {
+
+
                 if (response.isSuccessful && response.body() != null) {
                     view.exibirFilmes(response.body()!!)
                     view.esconderLoading()

@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.etudiodibri.R
+import com.example.etudiodibri.fragment.favorites.FavoritManeger
 import com.example.etudiodibri.model.GhibliResponse
 import retrofit2.Response
 
@@ -29,6 +30,7 @@ class MoviesAdapter(private val dibre :List<GhibliResponse>, private val onMovie
         private  val imagemLayout : ImageView = itemView.findViewById(R.id.totoroImg)
 
         fun bind(filme : GhibliResponse){
+           // FavoritManeger.favoritList.add(filme)
             name.text = filme.title
             val imageRes = filme.getThumbnail(itemView.context)
             imagemLayout.setImageResource(imageRes)
