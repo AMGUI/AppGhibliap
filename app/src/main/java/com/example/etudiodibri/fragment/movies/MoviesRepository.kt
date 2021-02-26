@@ -5,4 +5,5 @@ import retrofit2.Call
 
 interface MoviesRepository {
     fun requistarFilmes(): Call<List<GhibliResponse>>
+    fun salvarComoFavorito(filme: GhibliResponse)
 }

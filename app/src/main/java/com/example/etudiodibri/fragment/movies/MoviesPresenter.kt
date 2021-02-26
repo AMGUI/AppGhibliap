@@ -34,4 +34,8 @@ class MoviesPresenter(private val view: MoviesContract.View, private val reposit
     override fun aoClicarNoFilme(filme: GhibliResponse) {
         view.mostrarDetalhesFilme(filme)
     }
+
+    override fun salvarComoFavorito(filme: GhibliResponse) {
+        repository.salvarComoFavorito(filme)
+    }
 }

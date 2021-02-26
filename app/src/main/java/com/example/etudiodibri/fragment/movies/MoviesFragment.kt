@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.etudiodibri.R
 import com.example.etudiodibri.fragment.ErroLoadingFragment
+import com.example.etudiodibri.fragment.details.DetalhesFragment
 import com.example.etudiodibri.model.GhibliResponse
 import com.example.etudiodibri.network.ObjRetrofit
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_movies.*
 
 class MoviesFragment : Fragment(), MoviesContract.View {
@@ -25,14 +27,23 @@ class MoviesFragment : Fragment(), MoviesContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Obter Gson
+        val gson = Gson()
+        // Obter SharedPreferencs
+        val sharedPrefs = activity?.getSharedPreferences("studio_ghibli", 0)
         // Obter api
         val api = ObjRetrofit.obterEndPoit()
         // Obter repository e passar api
-        val repository = MoviesRepositoryImpl(api)
+        val repository = MoviesRepositoryImpl(api, sharedPrefs = sharedPrefs, gson = gson)
         // Iniciar presenter e passar o repository
         presenter = MoviesPresenter(this, repository)
         // Iniciar adapter
-        moviesAdapter = MoviesAdapter(filmes) { filme -> presenter.aoClicarNoFilme(filme) }
+        moviesAdapter = MoviesAdapter(filmes) { filme, praSalvar ->
+            if (praSalvar)
+                presenter.salvarComoFavorito(filme)
+            else
+                presenter.aoClicarNoFilme(filme)
+        }
         // Configurar recyclerView
         setupRecyclerView()
         // Realizar chamada da API
@@ -58,14 +69,12 @@ class MoviesFragment : Fragment(), MoviesContract.View {
     }
 
     override fun mostrarDetalhesFilme(filme: GhibliResponse) {
-        //Chamar o fragmento de detalhes e passar o filme
-        val frag = ErroLoadingFragment.newInstance(filme)
-
+        val fragment = DetalhesFragment.newInstance(filme)
         fragmentManager
                     ?.beginTransaction()
-                    ?.add(R.id.fragmentContainer, frag)
+                    ?.add(R.id.fragmentContainer, fragment)
+                    ?.addToBackStack("DETALHES_FRAGMENT")
                     ?.commit()
-        Snackbar.make(moviesLayout, filme.title, Snackbar.LENGTH_LONG).show()
     }
 
     override fun exibirLoading() {

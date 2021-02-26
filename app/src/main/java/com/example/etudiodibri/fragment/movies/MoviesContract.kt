@@ -13,5 +13,6 @@ interface MoviesContract {
     interface Presenter {
         fun requisitarFilmes()
         fun aoClicarNoFilme(filme: GhibliResponse)
+        fun salvarComoFavorito(filme: GhibliResponse)
     }
 }

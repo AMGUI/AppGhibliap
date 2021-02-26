@@ -5,49 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+    <ImageButton
+        android:id="@+id/favButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="16dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_favorites"
+        android:tint="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/dibreFilmeName"
+        app:layout_constraintEnd_toEndOf="@+id/dibreFilmeName" />
+
+    <TextView
+        android:id="@+id/dibreFilmeName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/cairo_light"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:text="Filme da Dibre e tals" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/dibreFilmeName"
+        app:layout_constraintStart_toStartOf="@+id/dibreFilmeName"
+        app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/totoroImg"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="16dp"
-                tools:layout_editor_absoluteX="134dp"
-                tools:layout_editor_absoluteY="40dp"
-                tools:srcCompat="@mipmap/dibre_logo" />
-
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/dibreFilmeName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+        <ImageView
+            android:id="@+id/totoroImg"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="32dp"
-            android:fontFamily="@font/cairo_light"
-            android:gravity="center"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/cardView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView"
-            app:layout_constraintTop_toTopOf="@+id/cardView"
-            tools:text="Filme da Dibre e tals" />
-    </LinearLayout>
+            tools:layout_editor_absoluteX="134dp"
+            tools:layout_editor_absoluteY="40dp"
+            tools:srcCompat="@mipmap/dibre_logo" />
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
