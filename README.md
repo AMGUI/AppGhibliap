@@ -3,7 +3,7 @@
   width="200" height="100"
     src="resources/ghibli_logo.png" />
   <br>
-  Android Api Estudio Ghibli
+  Android Aplicativo Studio Ghibli
 </h1>
 
 <h4 align="center">
