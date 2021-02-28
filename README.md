@@ -1,6 +1,6 @@
 <h1 align="center">
   <img alt="React RocketShoes" 
-  width="100" height="100"
+  width="200" height="100"
     src="resources/ghibli_logo.png" />
   <br>
   Android Api Estudio Ghibli
@@ -14,7 +14,7 @@
 Em desenvolvimeto...
 
 ## Projeto
-Desenvolvido com as tecnologias mais recentes no desenvolvimento de aplicações Android, utlizando a arquitetura MVVM, injenção de dependências e android architecture.
+Desenvolvido com as tecnologias mais recentes no desenvolvimento de aplicações Android, utlizando a arquitetura MVP.
 
 ## Tecnologias
 
@@ -26,7 +26,5 @@ Desenvolvido com as tecnologias mais recentes no desenvolvimento de aplicações
 ## Imagens
 
 <p align="center">
-  <img alt="Demo on Netlify" width="270" height="485" src="resources/splash.jpeg>
-  <img alt="Demo on Netlify" width="270" height="485" src="resources/login.jpeg">
   <img alt="Demo on Netlify" width="270" height="485" src="resources/fimes.jpeg">
 </p>
