@@ -26,5 +26,7 @@ Desenvolvido com as tecnologias mais recentes no desenvolvimento de aplicações
 ## Imagens
 
 <p align="center">
+  <img alt="Demo on Netlify" width="270" height="485" src="resources/splash.jpeg">
+  <img alt="Demo on Netlify" width="270" height="485" src="resources/login.jpeg">
   <img alt="Demo on Netlify" width="270" height="485" src="resources/fimes.jpeg">
 </p>
